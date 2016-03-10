@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Left panel starts -->
+        <div id="tcrm-nav" class="col-md-2 element" ng-include="'views/partials/left-menu.html'"></div>
+        <!-- Left panel ends -->
+        <!-- Right panel starts-->
+        <div id="tcrm-main" class="col-md-10 element">
+          <div class="row">
+            <!-- search starts -->
+            <div id="search" class="col-md-12" ng-include="'views/partials/main-search.html'"></div>
+            <!-- search ends -->
+            <div class="col-md-12 tcrm-dash-header">
+              <h3>Dashboard</h3>
+              <portlet-widget controller="dbc"></portlet-widget>
+               <div class="dashboard-tabs">
+                 <ul class="nav nav-tabs">
+                   <li ng-class="{active: dbc.activeTab===0}"><a href="" ng-click="dbc.getPortlets(0); dbc.activeMenu=0">Overview</a></li>
+                   <li ng-class="{active: dbc.activeTab===1}"><a href="" ng-click="dbc.getPortlets(1); dbc.activeMenu=1">My Dashboard 1</a></li>
+                   <li><a href="" ng-click="">+</a></li>
+                 </ul>
+               <div>
+               <!-- portlets starts -->
+                <div id="sortable">
+                  <portlet data="dbc.dashboard.portlets" controller="dbc"></portlet>
+                </div>
+               <!-- portlets ends -->
+            </div>
+          </div>
+        </div>
+        <!-- Right panel ends-->
+      </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<wizard template="views/onboarding/partials/w.html" on-finish="finishedWizard()">
+    <wz-step title="Welcome">
+      <div ng-include="'views/onboarding/partials/steps/welcome.html'"></div>
+    </wz-step>
+    <wz-step title="Data Sources">
+        <div ng-include="'views/onboarding/partials/steps/data-sources.html'"></div>
+    </wz-step>
+    <wz-step title="Products">
+        <div ng-include="'views/onboarding/partials/steps/ob-products.html'"></div>
+    </wz-step>
+    <wz-step title="Accounts">
+        <div ng-include="'views/onboarding/partials/steps/ob-accounts.html'"></div>
+    </wz-step>
+    <wz-step title="Case Management">
+        <div ng-include="'views/onboarding/partials/steps/case-management.html'"></div>
+    </wz-step>
+    <wz-step title="Users">
+        <input type="submit" wz-next value="Next" />
+    </wz-step>
+    <wz-step title="Others">
+        <div ng-include="'views/onboarding/partials/steps/ob-others.html'"></div>
+    </wz-step>
+</wizard>

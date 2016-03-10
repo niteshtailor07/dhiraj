@@ -1,0 +1,59 @@
+<div ng-controller= "ObProductsCtrl as ob_pc">
+  <section class="wz-main-section">
+    <div>
+      <div>
+        <h3>Add/Import Products</h3>
+        <div>
+          <h5>Import Via Saleforce</h5>
+          <p> Your saleforce credentials have been verified. <a> Click here to import products from Saleforce</a>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="col-md-12">
+          <div class="form-inline" id="account-operation-container">
+            <div class="form-group form-inline"><a class="account-operation" data-toggle="modal" data-target="#addProductModal" class="case-operation" ng-click="ob_pc.openCreatePopup();"><i class="icon icon-plus"></i> Add Product</a></div>
+            <div class="form-group form-inline"><a class="account-operation" class="case-operation" ng-click="ob_pc.openEditPopup();"><i class="icon icon-pencil"></i> Edit/Update</a></div>
+            <div class="form-group form-inline"><a class="account-operation" class="case-operation" ng-click="ob_pc.deleteProduct();"><i class="icon icon-minus"></i> Delete</a></div>
+            <div class="btn-group form-inline form-group">
+                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12">
+                     <span class="pull-left">
+                        More Actions
+                    </span>
+                    <span class="pull-right">
+                        <span class="caret"></span>
+                    </span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>Action 1</li>
+                    <li>Action 2</li>
+                    <li>Action 3</li>
+                </ul>
+            </div>
+          </div> <!-- end form inline-->
+        </div> <!-- end col-->
+      </div> <!-- end row-->
+
+      <product-modal></product-modal>
+
+      <div class="">
+          <div class="col-md-12">
+              <div class= "ob-table">
+                 <div ag-grid="ob_pc.gridOptions" class="ag-fresh grid"></div>
+              </div>
+          </div>
+      </div>
+    </div> <!--controller-->
+    <add-product-modal filename="add-product-modal" product="ob_pc.product" product-categories="ob_pc.productCategories"></add-product-modal>
+    <edit-product-modal filename="edit-product-modal" product="ob_pc.product" product-categories="ob_pc.productCategories" product-sub-categories="ob_pc.productSubCategories"></edit-product-modal>
+  </section>
+  <section class="onboarding-navigation">
+    <span class="wz-btns wz-cancel-btn">
+      <input type="button" wz-cancel value="Cancel" />
+    </span>
+    <span class="wz-btns wz-next-btn">
+      <input type="button" wz-previous value="Previous" />
+      <input type="submit" value="Next" wz-next="ob_pc.getAccounts()"/>
+    </span>
+  </section>
+</div>

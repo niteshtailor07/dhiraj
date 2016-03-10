@@ -1,0 +1,56 @@
+<section class="wz-main-section" ng-controller= "ObAccountsCtrl as ob_ac">
+  <div>
+    <div>
+      <h3>Add/Import Accounts</h3>
+      <div>
+        <p> You have not specified any data source for importing account data. </a>Connect to a data source now </a></p>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="col-md-12">
+        <div class="form-inline" id="account-operation-container">
+          <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-plus"></i> Add Account</a></div>
+          <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-pencil"></i> Edit/Update<a></div>
+          <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-minus"></i> Delete</a></div>
+          <div class="btn-group form-inline form-group">
+              <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12">
+                   <span class="pull-left">
+                      More Actions
+                  </span>
+                  <span class="pull-right">
+                      <span class="caret"></span>
+                  </span>
+              </button>
+              <ul class="dropdown-menu">
+                  <li>Action 1</li>
+                  <li>Action 2</li>
+                  <li>Action 3</li>
+              </ul>
+          </div>
+        </div> <!-- end form inline-->
+      </div> <!-- end col-->
+    </div> <!-- end row-->
+
+    <div>
+        <div class="col-md-12">
+            <div class= "ob-table">
+               <div ag-grid="ob_ac.gridOptions" class="ag-fresh grid"></div>
+            </div>
+        </div>
+    </div>
+
+  </div> <!--controller-->
+
+    <section class="onboarding-navigation">
+      <span class="wz-btns wz-cancel-btn">
+        <input type="button" wz-cancel value="Cancel" />
+      </span>
+      <span class="wz-btns wz-next-btn">
+        <input type="button" wz-previous value="Previous" />
+        <input type="submit" value="Next" wz-next="ob_ac.getCases()"/>
+      </span>
+    </section>
+
+</section>
+

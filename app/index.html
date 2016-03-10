@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-layout/ui-layout.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/ag-grid.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-fresh.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-blue.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-dark.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="bower_components/angular-wizard/dist/angular-wizard.min.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css" />
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tcrm-bootstrap.css">
+    <link rel="stylesheet" href="Font/demo-files/demo.css">
+    <link rel="stylesheet" href="styles/cases.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/onboarding.css">
+    <link rel="stylesheet" href="styles/accounts.css">
+    <link rel="stylesheet" href="styles/account-detail.css">
+    <link rel="stylesheet" href="styles/case-detail.css">
+    <!-- endbuild -->
+
+  </head>
+  <body ng-app="tCRMAPP">
+    <!-- the main rendering view container -->
+    <main class="container-fluid">
+      <section ng-view=""></section>
+    </main>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/raf/index.js"></script>
+    <script src="bower_components/angular-ui-layout/ui-layout.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/angularjs-toaster/toaster.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+    <script src="bower_components/ag-grid/dist/ag-grid.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/heap/lib/heap.js"></script>
+    <script src="bower_components/topojson/topojson.js"></script>
+    <script src="bower_components/d3plus/d3plus.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="bower_components/javascript-equal-height-responsive-rows/grids.min.js"></script>
+    <script src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbower -->
+    <script src="scripts/vendors/highstock.js"></script>
+    <script src="scripts/vendors/map.js"></script>
+    <script src="scripts/vendors/data.js"></script>
+    <script src="bower_components/jquery.shapeshift/core/jquery.shapeshift.min.js"></script>
+    <!-- endbuild -->
+
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/services/data-services.js"></script>
+     endbuild -->
+     <!-- build:js(.) scripts/script-es5.js -->
+    <script src="scripts/script-es5.js"></script>
+    <!-- endbuild -->
+
+<script>
+$( document ).ready(function() {
+  //for the modal from bootstrap to be draggable
+  $('.modal-dialog').draggable({
+      handle: '.modal-header'
+  });
+
+
+  $( '.nav-menu li' )
+  .mouseenter(function() {
+    $log.info('enters...');
+    $(this).addClass('active');
+  })
+  .mouseleave(function() {
+    $log.info('leaving...');
+    $(this).removeClass('active');
+  });
+ });
+</script>
+    <toaster-container toaster-options="{'position-class':'toast-top-right'}"></toaster-container>
+</body>
+</html>

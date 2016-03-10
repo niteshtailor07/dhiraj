@@ -1,0 +1,100 @@
+<section class="wz-main-section">
+  <div class="row">
+  <form class="form-horizontal col-md-9" name="">
+  <div class="">
+    <h4>Notification</h4>
+
+    <div class="form-group others-notification">
+      <label class="col-sm-3" for="inputURL">Admin Email address</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="inputEmail" required="required"  placeholder="Email"/>
+        <a href=""><u>View / Edit when to recive email</u></a>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <h4>Survey</h4>
+
+    <div class="">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <span>
+            Run the Customer Feedback Survey for each case<br>
+            <a href=""><u>View / Edit Survey Questions</u></a>
+          </span>
+        </label>
+
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <h4>Personalization</h4>
+    <div class="panel-group" id="accordion">
+      <div class="panel others-panel">
+        <div class="panel-heading">
+          <b class="panel-title others-panel-title">
+            <span data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+            Date/Time format</span>
+          </b>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+          <div class="panel-body others-panel-body">
+            <div class="">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="date">dd/mm/yyyy
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="date">mm/dd/yyyy
+                </label>
+              </div>
+            </div>
+            <div class="">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">24 hour format
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel others-panel">
+        <div class="panel-heading">
+          <b class="panel-title others-panel-title">
+            <span data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+            Language</span>
+          </b>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body"></div>
+        </div>
+      </div>
+      <div class="panel others-panel">
+        <div class="panel-heading">
+          <b class="panel-title others-panel-title">
+            <span data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+            User Interface Theme</span>
+          </b>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+</section>
+<section class="onboarding-navigation">
+  <span class="wz-btns wz-cancel-btn">
+    <input type="button" wz-cancel value="Cancel" />
+  </span>
+  <span class="wz-btns wz-next-btn">
+    <input type="button" wz-previous value="Previous" />
+    <input type="submit" wz-next value="Next" />
+  </span>
+</section>

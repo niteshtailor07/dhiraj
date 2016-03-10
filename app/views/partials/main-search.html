@@ -1,0 +1,32 @@
+<div class="row" >
+    <div class="col-md-12">
+        <div>
+          <span style="float:left;position: relative;top: 10px;"></span>
+          <ul class="nav nav-pills" style="float:right;">
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Welcome, Gautam<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>Preferences</li>
+                <li>Profile</li>
+                <li>Logout</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="padded-row">
+          <!--  <div angucomplete-alt id="ex1" placeholder="Search cases" text-no-results="Not found." text-searching="Searching for item" maxlength="200" pause="100" selected-object="dc.selectedCountry" local-data="dc.countries" search-fields="name,code" title-field="name" minlength="1" input-class="form-control form-control-large" match-class="highlight">
+          </div>-->
+            <form ng-submit="cc.searchText()">
+              <input type="text" name="name" value="" class="form-control form-control-large" placeholder="Search cases" ng-model="cc.freeText" ng-change="cc.searchText()" />
+              <span class="icon icon-search" ng-click="cc.searchText()"></span>
+            </form>
+          </div>
+        <div class="result">
+            <div ng-show="dc.selectedCountry">
+                You selected <span class="bold-span">{{dc.selectedCountry.originalObject.name}}</span> which has a country code of <span class="bold-span">{{dc.selectedCountry.originalObject.code}}</span>
+            </div>
+        </div>
+    </div>
+</div>

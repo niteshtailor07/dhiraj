@@ -1,0 +1,88 @@
+<div  id="addProductModal" class="modal fade" role="dialog" aria-labelledby="addProductModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addProductModalTitle">Add Product</h4>
+      </div>
+      <form class="form-horizontal" name="productFrom">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="col-md-10">
+              <div class="product-details-container">
+                <div class="form-group">
+                  <label class="col-sm-3" for="inputProductFamily">Product Family/Category</label>
+                  <div class="col-sm-9">
+                    <span class="required-triangle left-required-triangle"></span>
+                    <select required="required" class="form-control" id="inputProductFamily" name="inputProductFamily" ng-model="addProductModalCtrl.product.productCategoryId" ng-change="addProductModalCtrl.getSubType(addProductModalCtrl.product.productCategoryId);">
+                      <option value="" disabled="disabled" selected="selected"> -- select an
+                        option -- </option>
+                      <option ng-repeat="category in addProductModalCtrl.productCategories" ng-value="category.productCategoryId">{{category.productCategoryName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3" for="inputSubType">Sub Type</label>
+                  <div class="col-sm-9">
+                    <span class="required-triangle left-required-triangle"></span>
+                    <select required="required" class="form-control" id="inputSubType" name="inputProductFamily" ng-model="addProductModalCtrl.product.productSubCategoryId">
+                      <option value="" disabled="disabled" selected="selected"> -- select an
+                        option -- </option>
+                      <option ng-repeat="category in addProductModalCtrl.productSubCategories" ng-value="category.productSubCategoryId">{{category.productSubCategoryName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3" for="inputProductCode">Product Code</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="text" class="form-control" id="inputProductCode" required="required"  placeholder="Enter Product Code" ng-model="addProductModalCtrl.product.productCode"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 " for="inputProductName">Product Name</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="text" class="form-control" id="inputProductName" required="required"  placeholder="Enter Product Name" ng-model="addProductModalCtrl.product.productName"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="inputProductDescription">Product Description</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" id="inputProductDescription" ng-model="addProductModalCtrl.product.productDescription"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="inputUnitOfMeasure">Unit Of Measure</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="number" class="form-control" id="inputUnitOfMeasure" required="required" placeholder="Enter Unit Of Measure" ng-model="addProductModalCtrl.product.unitOfMeasure"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="inputCustomeAttribute1">Custom Attribute 1</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputCustomeAttribute1" placeholder="Enter Custome Attribute 1"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="inputCustomeAttribute2">Custom Attribute 2</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputCustomeAttribute2" placeholder="Enter Custome Attribute 2"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <label>
+            <input type="checkbox"> Add another after this
+          </label>
+          <button type="button" class="btn btn-primary  case-ok-modal-btn case-modal-btn" value="Save" ng-click="addProductModalCtrl.addProduct(productFrom)">Save</button>
+          <button type="button" class="btn btn-default case-cancel-modal-btn case-modal-btn" ng-click="addProductModalCtrl.close()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

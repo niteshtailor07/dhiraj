@@ -1,0 +1,230 @@
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="row">
+          <!-- Left panel starts-->
+          <div id="tcrm-nav" class="col-md-2 element"  ng-controller="LeftMenuCtrl as lmc">
+              <!-- logo starts-->
+              <div class="row margin-bottom-10">
+                  <div class="col-md-12">
+                      <img src="/images/tcrm-logo.png"alt="tcrm" id="logo" title="tcrm">
+                  </div>
+              </div>
+              <!-- nav starts-->
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul class="nav-menu">
+                          <li ><span class="indicator"></span><a href="#/dash">Dashboard</a></li>
+                          <li ><span class="indicator"></span><a ng-href="#/cases">Cases</a></li>
+                          <li ng-class="{active: true}"><span class="indicator"></span><a ng-href="#/accounts">Accounts</a></li>
+                          <li><span class="indicator"></span><a ng-href="#/csat">War Rooms</a></li>
+                          <li><span class="indicator"></span><a ng-href="#/know">KnowledgeBase</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- Communicator starts-->
+              <div class="row"  id="tcrm-commicator">
+                  <div class="col-md-12">
+                      <h5>Communicator</h5>
+                      <ul class="nav-menu2">
+                          <li><img height="35" src="/images/sales/rakesh.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a href="#/">Rekash P.</a></li>
+                          <li><img height="35" src="/images/sales/varun.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/cases">Varun B.</a></li>
+                          <li><img height="35" src="/images/sales/barb.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Sarah M.</a></li>
+                          <li><img height="35" src="/images/sales/amol.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Amol M.</a></li>
+                          <li><img height="35" src="/images/sales/ravi.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Ravi S.</a></li>
+                          <li><img height="35" src="/images/sales/long.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Aaron T.</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- Bookmarks starts-->
+              <div class="row" id="tcrm-bookmarks">
+                  <div class="col-md-12">
+                      <h5>Bookmarks</h5>
+                      <ul class="nav-menu3">
+                          <li><a href="#/casedetail/02fe3641-da29-445e-b799-a4074f9badaf">case: 50028000005g7xQAAQ</a></li>
+                          <li><a href="#/casedetail/044752e2-cc0d-4205-a1fc-fef7f297ff3c">case: 50028000005g7rTAAQ</a></li>
+                          <li><a href="#/">more...</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- Chat starts-->
+              <div class="row" id="chat">
+                  <div class="col-md-12">
+                    <ul>
+                      <li><img height="35" src="/images/sales/gautam.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Me           </a><span style="float:right;padding-right: 15px;font-size: 1.5em;">^</span></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Left panel ends-->
+            <!-- Right panel starts-->
+            <div id="tcrm-main" class="col-md-10 element">
+                <div class="row" style="background-color:#35B6B9;">
+                    <div class="col-md-12">
+                       <h6>Search accounts, cases, customers, files and more</h6>
+                        <div class="padded-row">
+                            <div angucomplete-alt id="ex1" placeholder="Search" text-no-results="Not found." text-searching="Searching for item" maxlength="200" pause="100" selected-object="dc.selectedCountry" local-data="dc.countries" search-fields="name,code" title-field="name" minlength="1" input-class="form-control form-control-large" match-class="highlight">
+                            </div>
+                            <span class="icon icon-search"></span>
+                        </div>
+                        <div class="result">
+                            <div ng-show="dc.selectedCountry">
+                                You selected <span class="bold-span">{{dc.selectedCountry.originalObject.name}}</span> which has a country code of <span class="bold-span">{{dc.selectedCountry.originalObject.code}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	            <div class="row" >
+	             	 <div class="col-md-12">
+	             	 	<a ng-href="#/accounts" href="#/accounts"><span class="dot"></span>Accounts</a>
+	             	 	<span>&gt Account Details</span>
+	             	 </div>
+	            </div>
+	             <div class="row v-padding-0" id="">
+	                <div class="col-md-12 ">
+	                    <span class="heading">{{acdtl.account.account_Name}}</span>
+	                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="account-detail-operation-container" class="form-inline">
+                            <div class="form-group form-inline account-detail-operation"><a class="account-detail-operation" href=""><i class="icon icon-pencil"></i>Edit</a></div>
+                            <div class="form-group form-inline account-detail-operation"><a class="account-detail-operation" href=""><i id="delete-operation" class="icon icon-minus"></i>Delete</a></div>
+                            <div class="form-group form-inline"><a class="account-detail-operation" href=""><i class="icon icon-compass"></i>Escalate</a></div>
+                            <div class="btn-group form-inline form-group">
+                                <button class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12 acc-detail-btn-bg" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     <span class="pull-left">
+                                        More Actions
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>Action 1</li>
+                                    <li>Action 2</li>
+                                    <li>Action 3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="warn-msg">
+                        	<span ><i class="icon icon-compass"></i></span>This account have been escalated
+                        </div>
+                      -->
+                    </div>
+                    <div class="col-md-12 m-v-md">
+                    	<button class="account-detail-button-active">Details</button>
+                    	<button class="account-detail-button">Assets</button>
+                    	<button class="account-detail-button">Activity</button>
+                    </div>
+                     <div class="col-md-12 m-v-sm">
+                     	<label class="acc-detail-label">Basic Info</label>
+                     	<div class="col-md-6 padding-0">
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Account Id : </div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.account_id}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Account Type : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Industry:</div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Duns Number: </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Last Activity Date :</div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.lastactivity}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Number of Employees: </div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.no_of_emp}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Ownership : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Website : </div>
+                     			<div class="col-md-9 padding-0"><a href="{{acdtl.account.weburl}}">{{acdtl.account.weburl}}</a></div>
+                     		</div>
+                     	</div>
+                     	<div class="col-md-6 padding-0">
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Account Number : </div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.crm_account_id}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Description : </div>
+	                     		<div class="col-md-9 padding-0">
+                            {{acdtl.account.description}}
+	                     		</div>
+                     		</div>
+                     	</div>
+                     </div>
+                     <div class="col-md-12 m-v-sm">
+                     	<label class="acc-detail-label">Contact Information</label>
+                     	<div class="col-md-6 padding-0">
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Contact Name : </div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.first_name}} {{acdtl.account.last_name}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Contact Email : </div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.email}}</div>
+                     		</div>
+                     	</div>
+                     	<div class="col-md-6 v-padding-xsm">
+                     		<div class="col-md-12 padding-0">
+                     			<div class="col-md-3 padding-0">Contact Phone : </div>
+                     			<div class="col-md-9 padding-0">{{acdtl.account.mobilephone}}</div>
+                     		</div>
+                     	</div>
+                     </div>
+
+                      <div class="col-md-12 m-v-sm">
+                      	<div class="col-md-5 padding-0">
+                     		<label class="acc-detail-label">Billing Address</label>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Address Line 1 : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Address Line 2 : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Address Line 3 : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     	</div>
+                     	<div class="col-md-6 col-md-offset-1 padding-0">
+                     		<label class="acc-detail-label">Shipping Address</label>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Address Line 1 : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Address Line 2 : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Address Line 3 : </div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     	</div>
+                     </div>
+
+
+                </div>
+
+            </div>
+            <!-- Right panel ends-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+.case-header{
+  padding: 10px;
+  background-color: #1C2B37;
+  color: #ffffff;
+  font-size: 25px;
+}
+.right-panel{
+  background-color: #FFF2CC;
+  padding: 10px;
+  font-size: 12px;
+}
+.case-container{
+  margin:10px;
+}
+.createcase-label{
+  min-width:100px;
+  font-size: 12px;
+ }
+ .input-container{
+   width:100%;
+ }
+ .input-value-container{
+   min-width:225px;
+   width:40%;
+ }
+ .input-value{
+   width:90%;
+ }
+ #case-severity{
+   width: 25%;
+   min-width: 75px;
+ }
+#case-type{
+  width:30%;
+  min-width: 75px;
+}
+#case-source{
+  width:30%;
+  min-width: 75px;
+}
+#case-title-container{
+  width:75%;
+}
+#case-description-container{
+  width: 75%;
+}
+.optional{
+  margin-left: 3px;
+}
+.required-indicator{
+  color: #CE0B0B;
+  background-color: #ff0000;
+  float: left;
+  margin: 1px 0;
+  width: 3px;
+}
+.account-info-container{
+  padding: 10px
+}
+.padding-10{
+  padding: 10px;
+}
+.account-logo{
+  padding: 10px;
+  float: left;
+}
+.case-footer{
+  background-color: #dddddd;
+  padding: 10px 15px;
+}
+.margin-0{
+  margin: 0;
+}
+.navigator, .navigator :hover{
+  text-decoration: none !important;
+  color: #ffffff;
+}
+.required{
+  border-left: 3px solid #ff0000;
+}

@@ -1,0 +1,49 @@
+<div id="login">
+  <div class= "row" id="login-main">
+    <div class= "col-md-8 col-md-offset-2">
+      <div>
+          <img src="/images/tcrm-logo.png"alt="tcrm" class="center-block" title="tcrm">
+      </div>
+      <div ng-show="lc.err">
+        <p>
+          Invalid username or password
+        </p>
+      </div>
+      <form ng-submit="lc.auth()">
+        <div class="row form-group">
+          <div class= "col-md-6 col-md-offset-3">
+            <input type="text" placeholder="Email" class="form-control" ng-model="lc.login.username" />
+            <input type="password" placeholder="Password" class="form-control" ng-model="lc.login.password" />
+            <div><a href=""><p class="text-right">Forgot Password?</p></a></div>
+            <button type="submit" class="btn btn-info">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Spinner-->
+    <button class="btn btn-default navbar-btn navbar-right" ng-hide="lc.ls.doneLoading">
+      <i class="fa fa-spinner fa-spin"></i>
+    </button>
+    <div class="login-error" ng-hide="lc.ls.isError">
+      <div class="alert alert-danger"><b>Error:</b> Bad Credentials.</div>
+    </div>
+  </div>
+
+<!-- <div class="container">
+  <div ng-show="lc.err">
+    <p>
+      Invalid username or password
+    </p>
+  </div>
+  <form class="" ng-submit="lc.authenticate()">
+    <div class="form-group">
+  		<label for="username">Username:</label> <input type="text"
+  			class="form-control" id="username" name="username" ng-model="lc.credentials.username"/>
+  	</div>
+  	<div class="form-group">
+  		<label for="password">Password:</label> <input type="password"
+  			class="form-control" id="password" name="password" ng-model="lc.credentials.password"/>
+  	</div>
+  	<button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div> -->

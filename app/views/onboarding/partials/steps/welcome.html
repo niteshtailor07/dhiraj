@@ -1,0 +1,25 @@
+<div ng-controller= "WelcomeCtrl as ob_wel">
+  <section class="wz-main-section" >
+    <h3>Welcome to TCRM!</h3>
+    <p>Hello {{ob_wel.customer.name}},</p>
+    <br />
+    <p>You have the following services activated for your account:</p>
+    <br />
+    <ol>
+      <li ng-repeat="service in ob_wel.customer.customeServices">{{service}}</li>
+    </ol>
+    <br />
+    <p>To let your team experience the awesomeness of this product,
+      you need to go through a few simple steps to set up your account.</p>
+    <br />
+    <p>So lets go & set up your TCRM account</p>
+  </section>
+  <section class="onboarding-navigation">
+    <span class="wz-btns wz-cancel-btn">
+      <input type="button" wz-cancel value="Cancel" />
+    </span>
+    <span class="wz-btns wz-next-btn">
+      <input type="submit" wz-next value="Next" />
+    </span>
+  </section>
+</div>

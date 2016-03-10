@@ -1,0 +1,103 @@
+.container-75vh{
+  height: 75vh;
+}
+#tcrm-main{
+  background-color : #fff;
+}
+.account-detail-header{
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: -20px;
+}
+.account-detail-header label{
+  font-weight: bold;
+}
+.padding-0{
+  padding: 0;
+}
+.v-padding-0{
+  padding-top: 0 !important;
+  padding-bottom : 0 !important;
+}
+.account-detail-sub-title{
+  color: #999999;
+  font-size: 14px;
+}
+.account-detail-info{
+  position: relative;
+  top: -10px;
+}
+.account-detail-icon{
+  float: left;
+  margin-left: 1px;
+  margin-right: 5px;
+}
+.heading {
+    font-size: 26px;
+    font-weight: bold;
+    color: #000000;
+}
+#account-detail-operation-container{
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 5px;
+  color:#46818E;
+}
+.acc-detail-btn-bg{
+  background-color : #eeeeee;
+}
+.account-detail-operation, .account-detail-operation:hover{
+  color: #009999;
+  font-size: 12px;
+  padding: 3px 10px 3px 3px;
+  text-decoration: none !important;
+}
+.account-detail-operation i{
+  font-size: 12px;
+  margin-right: 3px;
+}
+.account-detail-button{
+	background-color: #dddddd;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    margin-right: 6px;
+    padding: 3px 10px;
+    width: 120px;
+}
+
+.account-detail-button-active{
+    border: 1px solid #424242;
+    border-radius: 5px;
+    margin-right: 6px;
+    padding: 3px 10px;
+    width: 120px;
+	background-color: #134F5C;
+	color: #fff;
+}
+
+.account-detail-button:active{
+	background-color: #134F5C;
+	color: #fff;
+}
+.m-v-sm{
+	margin : 8px 0; 
+}
+.warn-msg{
+	 background-color: #fae6e6;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    color: #b90d0b;
+    margin: 3px 0 10px;
+    padding: 5px;
+}
+.acc-detail-label{
+	border-bottom : 1px solid #cfcfcf;
+	width : 100%;
+}
+.m-v-sm{
+	margin : 8px 0;
+}
+
+.v-padding-xsm{
+	padding : 1px 0;
+}

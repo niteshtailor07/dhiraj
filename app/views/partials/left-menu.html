@@ -1,0 +1,54 @@
+<!-- Left panel starts-->
+<div ng-controller="LeftMenuCtrl as lmc">
+    <!-- logo starts-->
+    <div class="row margin-bottom-10">
+        <div class="col-md-12">
+            <img src="/images/tcrm-logo.png"alt="tcrm" id="logo" title="tcrm">
+        </div>
+    </div>
+    <!-- nav starts-->
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav-menu">
+                <li ng-class="{active: lmc.isActive('/')}"><span class="indicator"></span><a href="#/dash">Dashboard</a></li>
+                <li ng-class="{active: lmc.isActive('/cases')}"><span class="indicator"></span><a ng-href="#/cases">Cases</a></li>
+                <li ng-class="{active: lmc.isActive('/accounts')}"><span class="indicator"></span><a ng-href="#/accounts">Accounts</a></li>
+                <li><span class="indicator"></span><a ng-href="#/csat">War Rooms</a></li>
+                <li><span class="indicator"></span><a ng-href="#/know">KnowledgeBase</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Communicator starts-->
+    <div class="row"  id="tcrm-commicator">
+        <div class="col-md-12">
+            <h5>Communicator</h5>
+            <ul class="nav-menu2">
+                <li><img height="35" src="/images/sales/rakesh.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a href="#/">Rekash P.</a></li>
+                <li><img height="35" src="/images/sales/varun.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/cases">Varun B.</a></li>
+                <li><img height="35" src="/images/sales/barb.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Sarah M.</a></li>
+                <li><img height="35" src="/images/sales/amol.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Amol M.</a></li>
+                <li><img height="35" src="/images/sales/ravi.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Ravi S.</a></li>
+                <li><img height="35" src="/images/sales/long.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Aaron T.</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Bookmarks starts-->
+    <div class="row" id="tcrm-bookmarks">
+        <div class="col-md-12">
+            <h5>Bookmarks</h5>
+            <ul class="nav-menu3">
+                <li><a href="#/casedetail/02fe3641-da29-445e-b799-a4074f9badaf">case: 50028000005g7xQAAQ</a></li>
+                <li><a href="#/casedetail/044752e2-cc0d-4205-a1fc-fef7f297ff3c">case: 50028000005g7rTAAQ</a></li>
+                <li><a href="#/">more...</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Chat starts-->
+    <div class="row" id="chat">
+        <div class="col-md-12">
+          <ul>
+            <li><img height="35" src="/images/sales/gautam.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Me           </a><span style="float:right;padding-right: 15px;font-size: 1.5em;">^</span></li>
+          </ul>
+        </div>
+    </div>
+</div>

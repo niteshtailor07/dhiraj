@@ -1,0 +1,72 @@
+<div  id="dataSourcesModal" class="modal fade" role="dialog" aria-labelledby="dataSourcesModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="dataSourcesModalTitle">Add Data Source</h4>
+      </div>
+      <form class="form-horizontal" name="datasourcesForm">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="col-md-9">
+              <div class="source-details-container">
+                  <div class="form-group">
+                    <label class=""><h4>Selected Data Source:</h4></label>
+                    <label class=""><h5>{{addDataSourceCtrl.selDataSource.dataSourceSubTypeName}}</h5></label>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="inputURL">URL/IP Address</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="text" class="form-control" id="inputURL" required="required"  placeholder="Enter URL/IP Address" ng-model="addDataSourceCtrl.selDataSource.defaultHostUrl"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 " for="inputUserName">User Name</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="text" class="form-control" id="inputUserName" required="required"  placeholder="Enter User Name"  ng-model="addDataSourceCtrl.selDataSource.username"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="inputPassword">Password</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="password" class="form-control" id="inputPassword" required="required"  placeholder="Enter Password" ng-model="addDataSourceCtrl.selDataSource.password"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for="securityToken">Security Token</label>
+                    <div class="col-sm-9">
+                      <span class="required-triangle left-required-triangle"></span>
+                      <input type="text" class="form-control" id="securityToken" required="required"  placeholder="Enter Security Token" ng-model="addDataSourceCtrl.selDataSource.securityToken"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3" for=""></label>
+                    <div class="col-sm-9">
+                      <div class="col-sm-9 data-source-alert" ng-class="addDataSourceCtrl.alert" role="alert" ng-if="addDataSourceCtrl.message">{{addDataSourceCtrl.message}}</div>
+                      <input type="button" class="btn btn-primary case-ok-modal-btn case-modal-btn col-sm-3" value="Test Connection" ng-click="addDataSourceCtrl.testConnection(datasourcesForm);" ng-disabled="addDataSourceCtrl.isActive"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="selection-container">
+                  <div class="">
+                    <label class="">Select entities to import</label>
+                  </div>
+                  <div class="checkbox" ng-repeat="object in addDataSourceCtrl.standardObject">
+                    <label>
+                      <input type="checkbox" ng-model="object.isActive" ng-init="object.integrationSourceId=addDataSourceCtrl.selDataSource.id"> {{object.objectName}}
+                    </label>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-primary  case-ok-modal-btn case-modal-btn" value="Import" ng-click="addDataSourceCtrl.import()"/>
+          <button type="button" class="btn btn-default case-cancel-modal-btn case-modal-btn" ng-click="addDataSourceCtrl.close()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

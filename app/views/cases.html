@@ -1,0 +1,224 @@
+<style>
+  .highlighted { background: yellow }
+</style>
+
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="row">
+            <!-- Left panel starts-->
+            <div id="tcrm-nav" class="col-md-2 element" ng-include="'views/partials/left-menu.html'"></div>
+            <!-- Right panel starts-->
+            <div id="tcrm-main" class="col-md-10 element">
+                <!-- toggles for list vs table view -->
+                <div class="row" id="case-header-container">
+                  <!-- search starts -->
+                  <div id="search" class="col-md-12" ng-include="'views/partials/main-search.html'"></div>
+                  <!-- search ends -->
+                  <div class="row margin-rev">
+                      <div class="col-md-12 tcrm-case-list-header">
+                          <!--TABS -->
+                          <div class="pull-left dashboard-tabs">
+                              <ul class="nav nav-tabs">
+                                <li ng-class="{active: cc.activeMenu === 0}"><a href="" ng-click="cc.filterUserCase('Aditya'); cc.activeMenu= 0">My Cases ({{(cc.cases |filter:cc.mycasesCaseFilter).length}})</a></li>
+                                <li ng-class="{active: cc.activeMenu === 1}"><a href="" ng-click="cc.filterUserCase(cc.unassignedCaseFilter.assignedtoUserName,true);cc.activeMenu= 1">All Cases ({{cc.cases.length}})</a></li>
+                              </ul>
+                          </div>
+
+                          <div class="btn-group pull-right" ng-click="cc.selectedCase=null">
+                                 <button type="button" class="btn btn-default icon icon-menu tgl-btn" ng-click="cc.listView=true" ng-class="{active:cc.listView}"></button>
+                                 <button type="button" class="btn btn-default icon icon-table2 tgl-btn" ng-click="cc.listView=false" ng-class="{active:!cc.listView}"></button>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="row margin-rev">
+                         <div class="col-md-12 form-inline form-group" ng-show="cc.activeMenu===1">
+                             <div class="form-inline form-group case-assign-inactive" ng-class="{'case-assign-active': cc.unassignedCaseFilter.assignedtoUserName == cc.caseFilter.search.assignedtoUserName}" ng-click="cc.filterUserCase(cc.unassignedCaseFilter.assignedtoUserName,true)">
+                                 Unassigned ({{(cc.cases |filter:cc.unassignedCaseFilter).length}})
+                             </div>
+                             <div class="form-inline form-group case-assign-inactive" ng-class="{'case-assign-active': cc.assignedCaseFilter.assignedtoUserName == cc.caseFilter.search.assignedtoUserName}"  ng-click="cc.filterUserCase(cc.assignedCaseFilter.assignedtoUserName)">
+                                 Assigned ({{(cc.cases |filter:cc.assignedCaseFilter).length}})
+                             </div>
+                             <div class="top-border m-t-md col-md-12"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- action buttons -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-inline" id="case-operation-container">
+                            <div class="form-group form-inline"><a href="" data-toggle="modal" data-target="#gridSystemModal" class="case-operation" ng-click="cc.createCase();"><i class="icon icon-plus"></i>Create New</a></div>
+                            <div class="form-group form-inline case-operation"><a href="" ng-if="cc.selectedCase" class="case-operation" data-toggle="modal" data-target="#editCaseModal" ng-click="cc.editCase();"><i class="icon icon-pencil"></i>Edit</a>
+                            <a href="" class="case-operation" ng-if="!cc.selectedCase" ng-click="cc.editCase();"><i class="icon icon-pencil"></i>Edit</a>
+                            </div>
+                            <div class="form-group form-inline case-operation"><a href="" class="case-operation" ng-click="cc.deleteCase();"><i class="icon icon-minus" id="delete-operation"></i>Delete</a></div>
+                            <div class="form-group form-inline case-operation"><a href="#" class="case-operation"><i class="icon icon-compass"></i>Escalate</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 tcrm-case-filter">
+                      <div class="filter-container col-md-12">
+                        <div class="filter-list form-inline nav navbar-nav">
+                            <div class=" filter-title form-inline form-group">Filter:</div>
+                            <div class="btn-group form-inline form-group filter-btn">
+                                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle ">
+                                    <span class="pull-left">
+                                        Status:
+                                        <span class="filter-type">{{cc.caseFilter.status.value}}</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="status in cc.caseStatus" ng-click="cc.filterCase('status',status)">{{status.value}}</li>
+                                </ul>
+                            </div>
+                            <div class="btn-group form-inline form-group">
+                                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle col-md-12">
+                                    <span class="pull-left">
+                                        Severity:
+                                        <span class="filter-type">{{cc.caseFilter.priority.value}}</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="priority in cc.casePriority" ng-click="cc.filterCase('priority',priority)">{{priority.value}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="filter-list form-inline nav navbar-nav navbar-right">
+        	                 <div class="btn-group form-inline form-group">
+                                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle col-md-12">
+                                     <span class="pull-left">
+                                        Sort By:
+                                        <span class="filter-type"> {{cc.caseFilter.caseSort.value}}</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="sortOption in cc.sortOptions"  ng-click="cc.sortCase(sortOption)">{{sortOption.value}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="clr-bth">
+                      </div>
+                      <div class="top-border col-md-12"></div>
+                    </div>
+                </div>
+
+                <div class="row" id="case-list-container" ng-show="cc.listView">
+                    <!-- list view -->
+                    <div class="col-md-12">
+                      <div>
+                         <div class="heading-sm pull-left">{{(cc.cases |filter:cc.caseFilter.search:strict).length}} Cases</div>
+                          <div class="clr-bth"></div>
+                      </div>
+                      <div id="tcrm-watchlist" class="container-75vh">
+                          <div class="row">
+                              <div class="tcrm-recents case-container" ng-repeat="case in cc.cases | orderBy:cc.caseFilter.caseSort.key:cc.caseFilter.caseSort.reverse | filter:cc.caseFilter.search:strict">
+                                    <div class="case-detail">
+                                        <div class="">
+                                            <div class="form-inline">
+                                                <div class="recents-colored form-inline form-group case-subject">{{case.accountName}}</div>
+                                                <div class="pull-right form-inline form-group">
+                                                    <div class="form-inline form-group"><span class="group case-indicator color-black"></span></div>
+                                                    <div class="form-inline form-group">
+                                                        <div ng-switch="case.status">
+                                                            <div ng-switch-when="1"><span class="case-status-open case-indicator">Open</span></div>
+                                                            <div ng-switch-when="2"><span class="case-status-active case-indicator">Active</span></div>
+                                                            <div ng-switch-when="3"><span class="case-status-awaiting case-indicator">Awaiting Input</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-inline form-group">
+                                                        <div>
+                                                            <div ng-repeat="s in cc.values.severity"><span ng-if="s.id==case.priorityId" class="case-indicator case-type-minor">{{s.name}}</span></div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="form-inline form-group" ><span class="case-time case-indicator">1 Day</span></div>
+                                                    <div class="form-inline form-group dropdown">
+                                                      <button class="btn btn-default btn-xs case-assign-btn dropdown-toggle" data-toggle="dropdown" id="case-actions" aria-haspopup="true" aria-expanded="true">
+                                                        <span class="pull-left">
+                                                          Assign
+                                                        </span>
+                                                        <span class="pull-right">
+                                                          <span class="caret"></span>
+                                                        </span>
+                                                      </button>
+                                                      <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li ng-click="cc.assignToMe(case)">Aditya</li>
+                                                      </ul>
+                                                    </div>
+                                                    <div class="form-inline form-group dropdown">
+                                                      <button class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" id="case-actions" aria-haspopup="true" aria-expanded="true">
+    												                            <span class="glyphicon glyphicon-cog"></span>
+                                                      </button>
+                                                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="case-actions">
+                                                        <li ng-click="cc.editCase(case);"  data-toggle="modal" data-target="#editCaseModal"> Edit</li>
+                                                        <li>Escalate</li>
+                                                        <li>Delete</li>
+                                                        <li>Clone</li>
+                                                      </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="recents-colored case-header">
+                                              <label>
+                                                  <input type="radio" ng-value="case" ng-model="cc.selectedCase">
+                                                  <a ng-href="#/casedetail/{{case.id}}" class="a-font case-title" ng-bind-html="case.subject | sanitize"></a>
+                                              </label>
+                                            </div>
+                                            <div class="padding-0 col-md-12">
+                                                <div class="case-report">
+                                                  <div class="col-md-3 case-detail case-sub-title">Case ID: #{{case.crm_case_id}}</div>
+                                                  <div class="col-md-3 case-detail case-sub-title">Assigned to: <span ng-bind-html="case.assignedtoUserName | sanitize"></span></div>
+                                                  <div class="col-md-3 case-detail case-sub-title" ng-show="cc.activeMenu === 1">Queue: {{case.currentqueue}}</div>
+                                                    <a href="" ng-show="!case.extra.expandMore" ng-click="case.extra.expandMore=true" ng-init="case.extra.expandMore = false" class="col-md-3">more...</a>
+                                                </div>
+                                            </div>
+                                            <div class="padding-0 col-md-12" ng-show="case.extra.expandMore">
+                                                <div class="case-report">
+                                                    <div class="col-md-3 case-detail case-sub-title">Created on: {{case.openDate | date:'EEEE, MMM d yyyy'}}</div>
+                                                    <div class="col-md-3 case-detail case-sub-title">Created by: {{case.createdbyUserName}}</div>
+                                                    <a class="col-md-3" href="" ng-click="case.extra.expandMore=false">less</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="case case-info padding-0 col-md-12">
+                                            <div class="case-icon">
+                                                <img width="30" height="30" title="tcrm" alt="tcrm" class="recents-pix" src="/images/sales/varun.jpg">
+                                            </div>
+                                            <div class="col-md-11 padding-0">
+                                              <span class="recents-colored">Varun B.</span>
+                                                <span class="case-sub-title">assigned you this case | Today, 9:45 pm</span>
+                                            </div>
+                                            <div class="case-dec col-md-11 padding-0"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clr-bth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+                <!-- table view -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive container-75vh " id="case-grid-container" ng-show="!cc.listView">
+                            <div ag-grid="cc.gridOptions" class="ag-fresh grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right panel ends-->
+        </div>
+    </div>
+</div>
+<tcrm-modal filename="create-new" values="cc.values" case="cc.case" accounts="cc.accounts" requesters="cc.requesters" selected-account="cc.selectedAccount" selected-Asset="cc.selectedAsset"></tcrm-modal>
+<edit-case-modal filename="edit-case" values="cc.values" selected-case="cc.selectedCase" accounts="cc.accounts" requesters="cc.requesters"  assets="cc.assets" case-copy="cc.caseCopy" uploadfiles="cc.files" selected-account="cc.selectedAccount" selected-Asset="cc.selectedAsset"></edit-case-modal>

@@ -1,0 +1,192 @@
+<div  id="editCaseModal" class="modal fade" role="dialog" aria-labelledby="editCaseModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Edit Case</h4>
+      </div>
+      <form class="form-horizontal" name="editCaseForm">
+        <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- main create form -->
+            <div class="col-md-9">
+              <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputCaseType">Case Type</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputCaseType" name="Case Type" ng-model="editCaseCtrl.case.caseTypeId">
+                      <option ng-repeat="type in editCaseCtrl.values.type"  ng-selected="editCaseCtrl.case.caseTypeId==type.id" value={{type.id}}>{{type.value}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputSource">Origin</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputSource" name="Origin" ng-model="editCaseCtrl.case.sourceId">
+                      <option ng-repeat="source in editCaseCtrl.values.source" value={{source.id}} ng-selected="editCaseCtrl.case.sourceId==source.id" value={{source.id}}>{{source.value}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputAccount">Account</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputAccount" name="Account" ng-model="editCaseCtrl.case.accountId" ng-change="editCaseCtrl.getAssetsAndRequesters(editCaseCtrl.case.accountId)">
+                      <option  value="" disabled="disabled" > -- select an
+                        option -- </option>
+                      <option ng-repeat="account in editCaseCtrl.accounts"  ng-selected="editCaseCtrl.case.accountId==account.accountId" value={{account.accountId}}>{{account.accountName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputRequester">Requester</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputRequester" name="Requester" ng-model="editCaseCtrl.case.createdbyUserId">
+                      <option ng-repeat="requester in editCaseCtrl.requesters"  ng-selected="editCaseCtrl.case.createdbyUserId==requester.userId" value={{requester.userId}}>{{requester.displayName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputTitle">Case Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" required="required" id="inputTitle" placeholder="Enter Case Title" ng-model="editCaseCtrl.case.subject">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputDescription">Description</label>
+                  <div class="col-sm-10">
+                    <textarea maxlength="500" class="form-control" placeholder="Enter Description..." required="required" wrap="soft" rows="4" cols="50" name="description" ng-model="editCaseCtrl.case.description"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputSeverity">Severity</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputSeverity" name="Severity" ng-model="editCaseCtrl.case.priorityId">
+                      <option ng-repeat="p in editCaseCtrl.values.severity" ng-selected="editCaseCtrl.case.priorityId==p.id" value={{p.id}}>{{p.value}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputAssetSrNo">Asset Sr. No.</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputAssetSrNo" name="AssetSrNo" ng-model="editCaseCtrl.case.assetId" ng-change="editCaseCtrl.getAssetDetail(editCaseCtrl.case.assetId)">
+                      <option ng-repeat="asset in editCaseCtrl.assets" ng-selected="editCaseCtrl.case.assetId==asset.id" value={{asset.id}}>{{asset.serial}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputAsset">Asset Type</label>
+                  <div class="col-sm-10">
+                    <select required="required" class="form-control" id="inputAsset" name="Asset" disabled="disabled">
+                      <option ng-selected="" ng-repeat="asset in editCaseCtrl.assets"  ng-selected="editCaseCtrl.case.assetId==asset.id"  value={{asset.id}}>{{asset.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" ></label>
+                  <div class="col-sm-10">
+                    <a ng-href="{{editCaseCtrl.case.resourceURL}}" target="_blank" download>{{editCaseCtrl.case.resourceURL}}</a>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputAttachments">Attachments</label>
+                  <div class="col-sm-10">
+                    <div class="col-md-11 col-sm-10 padding-reverse">
+                      <!-- adding onchange to assign file to call angular function setFile() -->
+                      <input class="form-control" id="editCaseFile" name="Attachments" type="file" onchange="angular.element(this).scope().editCaseCtrl.setFiles(this)"  ng-model="editCaseCtrl.resourceURL">
+                    </div>
+                    <label class="remove-attachment col-md-1 padding-reverse col-sm-2" ng-click="editCaseCtrl.clearAttachment()" >
+                      <span class="glyphicon glyphicon-remove" ></span>
+                    </label>
+                  </div>
+                </div>
+            </div>
+
+            <!-- right create case info -->
+            <div class="col-md-3 right-panel">
+              <div class="form-group side-margin-0">
+                <label class="control-label" for="inputKnowledgeBase">KnowledgeBase</label>
+                <input type="text" class="form-control modal-search" id="inputKnowledgeBase"  placeholder="search">
+              </div>
+              <!--account info-->
+              <div class="account-info" ng-show="editCaseCtrl.selectedAccount">
+                <div class="paddin-10 right-panel-heading">About this Account</div>
+                <div class="account-info-container">
+                  <div class="account-desc">
+                      <img src="http://www.acme.in/img/logo.png"  height="80" width="100" class="account-logo"/>
+                      <p>
+                        {{editCaseCtrl.selectedAccount.description}}
+                      </p>
+                  </div>
+                </div>
+                <div class="account-info-container even">
+                  <label for="" class="paddin-10">Entitlement info</label>
+                  <div class="">
+                    <p>
+
+                    </p>
+                  </div>
+                </div>
+                <div class="account-info-container">
+                  <label for="">Most Recent Case</label>
+                  <div class="">
+                    <label for="" class="paddin-10">Case Title</label>
+                    <div>
+                        {{editCaseCtrl.case.subject}}
+                    </div>
+                  </div>
+                </div>
+                <div class="account-info-container">
+                  <label>Average Satisfaction Score:</label>
+                  <label></label>
+                </div>
+              </div>
+              <!--Asset info-->
+              <div class="assets-info" ng-show="editCaseCtrl.selectedAsset">
+                <div class="paddin-10 right-panel-heading">Asset Information</div>
+                <div class="assets-info-container">
+                  <div class="form-group">
+                    <label class="col-sm-6">Asset Sr. No.</label>
+                    <div class="col-sm-6">
+                      {{editCaseCtrl.selectedAsset.serial}}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-6">Name</label>
+                    <div class="col-sm-6">
+                      {{editCaseCtrl.selectedAsset.name}}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-6">Type</label>
+                    <div class="col-sm-6">
+                      {{editCaseCtrl.selectedAsset.type}}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-6">Installed on</label>
+                    <div class="col-sm-6">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="assets-info-container even">
+                  <label for="" class="paddin-10">Asset entitlement info</label>
+                  <div class="">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary case-ok-modal-btn case-modal-btn" ng-click="editCaseCtrl.editCase(editCaseForm);">Save</button>
+        <button type="button" class="btn btn-default case-cancel-modal-btn case-modal-btn" ng-click="editCaseCtrl.close()">Cancel</button>
+      </div>
+    </form>
+
+    </div>
+  </div>
+</div>

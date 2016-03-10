@@ -1,0 +1,194 @@
+<section class="wz-main-section" ng-controller= "OnboardingCaseManagementCtrl as ob_cmc">
+  <h3><b>Case Management</b></h3>
+
+  <h4 class="m-t-20">Import case from an existing system (along with assests and service contracts)</h4>
+
+  <div class="alert alert-success" role="alert">
+   You have not specified any data source for importng any existing cases
+    <a href="#" class="alert-link">Connect to data source now</a>
+  </div>
+
+  <h3 class="text-center"><b>OR</b></h3>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="javascript:;" aria-expanded="false" aria-controls="collapseOne" data-target="#collapseOne">
+            Case Queues
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <!-- table view -->
+          <div class="row">
+              <div class="col-md-12">
+                  <!-- <div class="table-responsive container-75vh " id="case-grid-container" ng-show="!cc.listView">
+                      <div ag-grid="ob_cmc.gridOptions" class="ag-fresh grid"></div>
+                  </div> -->
+
+                      <div class="form-inline" id="account-operation-container">
+                        <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-plus"></i> Create New</a></div>
+                        <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-pencil"></i> Edit/Update<a></div>
+                        <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-minus"></i> Delete</a></div>
+                        <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-cloud-download"></i> Import</a></div>
+                        <div class="btn-group form-inline form-group">
+                            <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12">
+                                 <span class="pull-left">
+                                    More Actions
+                                </span>
+                                <span class="pull-right">
+                                    <span class="caret"></span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>Action 1</li>
+                                <li>Action 2</li>
+                                <li>Action 3</li>
+                            </ul>
+                        </div>
+                      </div> <!-- end form inline-->
+
+                      <ul class="case-management-list">
+                        <li>
+                          <div class="pull-left">
+                            <input type="checkbox" id="caseQueuesChkBox1" /> 
+                            <label for="caseQueuesChkBox1">Queues 1</label>
+                          </div> 
+                          <div class="pull-right">
+                            <input type="radio" name="caseQueues" id="caseQueuesRadio1" /> 
+                            <label for="caseQueuesRadio1">Make this default</label>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="pull-left">
+                            <input type="checkbox" id="caseQueuesChkBox2" /> 
+                            <label for="caseQueuesChkBox2">Queues 2</label>
+                          </div> 
+                          <div class="pull-right">
+                            <input type="radio" name="caseQueues" id="caseQueuesRadio2" /> 
+                            <label for="caseQueuesRadio2">Make this default</label>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="pull-left">
+                            <input type="checkbox" id="caseQueuesChkBox3" /> 
+                            <label for="caseQueuesChkBox3">Queues 3</label>
+                          </div> 
+                          <div class="pull-right">
+                            <input type="radio" name="caseQueues" id="caseQueuesRadio3" /> 
+                            <label for="caseQueuesRadio3">Make this default</label>
+                          </div>
+                        </li>
+                      </ul>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="javascript:;" aria-expanded="false" aria-controls="collapseTwo" data-target="#collapseTwo">
+            Case Severities
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-inline" id="account-operation-container">
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-plus"></i> Create New</a></div>
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-pencil"></i> Edit/Update<a></div>
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-minus"></i> Delete</a></div>
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-cloud-download"></i> Import</a></div>
+                <div class="btn-group form-inline form-group">
+                    <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12">
+                         <span class="pull-left">
+                            More Actions
+                        </span>
+                        <span class="pull-right">
+                            <span class="caret"></span>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>Action 1</li>
+                        <li>Action 2</li>
+                        <li>Action 3</li>
+                    </ul>
+                </div>
+              </div> <!-- end form inline-->
+              <ul class="case-management-list severities-list">
+                <li ng-repeat="severities in ob_cmc.caseSeverities">
+                  <div class="pull-left">
+                    <input type="checkbox" id="caseQueuesChkBox1" /> 
+                    <label for="caseQueuesChkBox1">{{severities.name}} <i class="case-severities-boxes"></i></label>
+                  </div> 
+                </li>                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="javascript:;" aria-expanded="false" aria-controls="collapseThree" data-target="#collapseThree">
+            Case Statuses
+          </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-inline" id="account-operation-container">
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-plus"></i> Create New</a></div>
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-pencil"></i> Edit/Update<a></div>
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-minus"></i> Delete</a></div>
+                <div class="form-group form-inline"><a class="account-operation"><i class="icon icon-cloud-download"></i> Import</a></div>
+                <div class="btn-group form-inline form-group">
+                    <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12">
+                         <span class="pull-left">
+                            More Actions
+                        </span>
+                        <span class="pull-right">
+                            <span class="caret"></span>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>Action 1</li>
+                        <li>Action 2</li>
+                        <li>Action 3</li>
+                    </ul>
+                </div>
+              </div> <!-- end form inline-->
+              <ul class="case-management-list severities-list">
+                <li ng-repeat="status in ob_cmc.caseStatus">
+                  <div class="pull-left">
+                    <input type="checkbox" id="{{status.id}}" /> 
+                    <label for="{{status.id}}">{{status.name}} <i class="case-status-boxes"></i></label>
+                  </div> 
+                </li>                
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="onboarding-navigation">
+  <span class="wz-btns wz-cancel-btn">
+    <input type="button" wz-cancel value="Cancel" />
+  </span>
+  <span class="wz-btns wz-next-btn">
+    <input type="button" wz-previous value="Previous" />
+    <input type="submit" wz-next value="Next" />
+  </span>
+</section>

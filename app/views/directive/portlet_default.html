@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="column col-md-12 droppable">
+    <div  class="portlet" ng-class="{'large': portlet.size == 'large'}" ng-repeat="portlet in data" id="{{portlet.id}}">
+      <div class="portlet-header">{{portlet.name}}</div>
+      <div class="portlet-menu">
+        <div class="btn-group form-inline form-group">
+             <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default  dropdown-toggle">
+                  <span class="pull-left">
+                     For:
+                     <span class="filter-type">1 month &nbsp; </span>
+                 </span>
+                 <span class="pull-right">
+                     <span class="caret"></span>
+                 </span>
+             </button>
+             <ul class="dropdown-menu">
+                 <li class="text-center">1 month</li>
+                 <li class="text-center">3 months</li>
+                 <li class="text-center">6 months</li>
+             </ul>
+         </div>
+      </div>
+      <div class="portlet-content clear"><div id="boo{{portlet.id}}" style="position: relative; height: 424px;"></div></div>
+    </div>
+  </div>
+</div>

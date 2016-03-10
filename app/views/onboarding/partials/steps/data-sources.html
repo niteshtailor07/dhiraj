@@ -1,0 +1,105 @@
+<section class="wz-main-section" ng-controller= "DataSourcesCtrl as ob_dsc">
+  <h3>Select Data Sources</h3>
+  <p>Select the Data Sources you want your Products, Accounts, and Case related information imported from.</p>
+  <p>On click of any of the tiles belo, you will be prompted to provide additional details to pull data dfrom these sources.</p>
+
+  <div class="dynamicTile">
+    <div class="row">
+      <a href="" ng-repeat="datasource in ob_dsc.datasources" data-toggle="modal" data-target="#dataSourcesModal" ng-click="ob_dsc.setDatasource(datasource)">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <div id="" class="tile">
+            <div>
+              <div class="">
+                <span class="glyphicon glyphicon-ok selected" ng-show="datasource.isActive"></span>
+              </div>
+              <div class="text-center">
+                <span class="bigicon">
+                  <img ng-src="{{datasource.logoPath}}" />
+                </span>
+              </div>
+              <div class="icontext">
+    						<!--Text-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <!-- <a href="" data-toggle="modal"  >
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <div id="" class="tile">
+            <div>
+              <div class="">
+                <span class="glyphicon glyphicon-ok selected" ng-hide="true"></span>
+              </div>
+              <div class="text-center">
+                <span class="bigicon">
+                  <img src="images/sap_logo.png" />
+                </span>
+              </div>
+              <div class="icontext">
+    					</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="" data-toggle="modal" >
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <div id="" class="tile">
+            <div>
+              <div class="">
+                <span class="glyphicon glyphicon-ok selected"  ng-hide="true"></span>
+              </div>
+              <div class="text-center">
+                <span class="bigicon">
+                  <img src="images/oracle_logo.png" />
+                </span>
+              </div>
+              <div class="icontext">
+    					</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="" data-toggle="modal" >
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <div id="" class="tile">
+            <div>
+              <div class="">
+                <span class="glyphicon glyphicon-ok selected" ng-hide="true"></span>
+              </div>
+              <div class="text-center">
+                <span class="bigicon">
+                  <img src="images/salesforce_logo.png" />
+                </span>
+              </div>
+              <div class="icontext">
+    					</div>
+            </div>
+          </div>
+        </div>
+      </a> -->
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div id="" class="tile">
+          <div>
+            <div class="icontext">
+              More coming soon
+            </div>
+            <div class="icontext">
+  						<!--Text-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<sources-modal filename="add-data-sources" sel-data-source="ob_dsc.selDataSource" standard-object="ob_dsc.standardObject"></sources-modal>
+ <section class="onboarding-navigation">
+  <span class="wz-btns wz-cancel-btn">
+    <input type="button" wz-cancel value="Cancel" />
+  </span>
+  <span class="wz-btns wz-next-btn">
+    <input type="button" wz-previous value="Previous" />
+    <input id="nextProduct" type="submit" wz-next="ob_dsc.getProducts()" value="Next" />
+  </span>
+  </section>
+</section>

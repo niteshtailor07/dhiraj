@@ -1,0 +1,308 @@
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="row">
+            <!-- Left panel starts-->
+            <div id="tcrm-nav" class="col-md-2 element"  ng-controller="LeftMenuCtrl as lmc">
+                <!-- logo starts-->
+                <div class="row margin-bottom-10">
+                    <div class="col-md-12">
+                        <img src="/images/tcrm-logo.png"alt="tcrm" id="logo" title="tcrm">
+                    </div>
+                </div>
+                <!-- nav starts-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav-menu">
+                            <li ><span class="indicator"></span><a href="#/dash">Dashboard</a></li>
+                            <li ng-class="{active: true}"><span class="indicator"></span><a ng-href="#/cases">Cases</a></li>
+                            <li ><span class="indicator"></span><a ng-href="#/accounts">Accounts</a></li>
+                            <li><span class="indicator"></span><a ng-href="#/csat">War Rooms</a></li>
+                            <li><span class="indicator"></span><a ng-href="#/know">KnowledgeBase</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Communicator starts-->
+                <div class="row"  id="tcrm-commicator">
+                    <div class="col-md-12">
+                        <h5>Communicator</h5>
+                        <ul class="nav-menu2">
+                            <li><img height="35" src="/images/sales/rakesh.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a href="#/">Rekash P.</a></li>
+                            <li><img height="35" src="/images/sales/varun.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/cases">Varun B.</a></li>
+                            <li><img height="35" src="/images/sales/barb.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Sarah M.</a></li>
+                            <li><img height="35" src="/images/sales/amol.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Amol M.</a></li>
+                            <li><img height="35" src="/images/sales/ravi.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Ravi S.</a></li>
+                            <li><img height="35" src="/images/sales/long.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Aaron T.</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Bookmarks starts-->
+                <div class="row" id="tcrm-bookmarks">
+                    <div class="col-md-12">
+                        <h5>Bookmarks</h5>
+                        <ul class="nav-menu3">
+                            <li><a href="#/casedetail/02fe3641-da29-445e-b799-a4074f9badaf">case: 50028000005g7xQAAQ</a></li>
+                            <li><a href="#/casedetail/044752e2-cc0d-4205-a1fc-fef7f297ff3c">case: 50028000005g7rTAAQ</a></li>
+                            <li><a href="#/">more...</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Chat starts-->
+                <div class="row" id="chat">
+                    <div class="col-md-12">
+                      <ul>
+                        <li><img height="35" src="/images/sales/gautam.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm"><a ng-href="#/customers">Me           </a><span style="float:right;padding-right: 15px;font-size: 1.5em;">^</span></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left panel ends-->
+            <!-- Right panel starts-->
+            <div id="tcrm-main" class="col-md-10 element">
+            <form name="editCaseDetailForm">
+                <!-- toggles for list vs table view -->
+                <div class="row" id="case-header-container">
+                  <!-- search starts -->
+                  <div id="search" class="col-md-12" ng-include="'views/partials/main-search.html'"></div>
+                  <!-- search ends -->
+                </div>
+	            <div class="row" >
+	             	  <div class="col-md-12">
+                        <a ng-href="#/cases" href="#/cases"><span class="dot"></span>Cases</a>
+                        <span ng-show="!cdtl.editCaseDetail">&gt Case Details</span>
+                        <span ng-show="cdtl.editCaseDetail">
+                            &gt
+                            <a ng-href="#/casedetail/{{cdtl.caseDetail.id}}" href="#/casedetail/{{cdtl.caseDetail.id}}" ng-click="cdtl.cancelEditCaseDtl()"><span class="dot"></span> Case Details</a>
+                            &gt Edit Case
+                        </span>
+                     </div>
+	            </div>
+	             <div class="row v-padding-0" id="">
+	                <div class="col-md-6 ">
+	                    <span class="heading"><span ng-show="cdtl.editCaseDetail">Edit : </span> Ex 4200 Switch Configuration Issue</span>
+	                </div>
+                  <div class="col-md-6 ">
+                      <div class="pull-right form-inline form-group">
+                        <div class="form-inline form-group"><span class="group case-indicator color-black"></span></div>
+                        <div class="form-inline form-group">
+                            <div ng-switch="cdtl.caseDetail.status">
+                                <div ng-switch-when="1"><span class="case-status-open case-indicator">Open</span></div>
+                                <div ng-switch-when="2"><span class="case-status-active case-indicator">Active</span></div>
+                                <div ng-switch-when="3"><span class="case-status-awaiting case-indicator">Awaiting Input</span></div>
+                            </div>
+                        </div>
+                        <div class="form-inline form-group">
+                            <div ng-switch="cdtl.caseDetail.priority">
+                                <div ng-switch-when="4"><span class="case-indicator case-type-minor">Informational</span></div>
+                                <div ng-switch-when="1"><span class="case-indicator case-type-minor">Minor</span></div>
+                                <div ng-switch-when="2"><span class="case-indicator case-type-major">Major</span></div>
+                                <div ng-switch-when="3"><span class="case-indicator case-type-critical">Critical</span></div>
+                            </div>
+                        </div>
+                        <div class="form-inline form-group" ><span class="case-time case-indicator">1 Day</span></div>
+                      </div>
+                  </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-12">
+                        <div id="case-detail-operation-container" class="form-inline">
+                            <div class="form-group form-inline case-detail-operation"><a class="case-detail-operation" href="" ng-click="cdtl.editCaseDtl()"><i class="icon icon-pencil"></i>Edit</a></div>
+                            <div class="form-group form-inline case-detail-operation"><a class="case-detail-operation" href=""><i id="delete-operation" class="icon icon-minus"></i>Delete</a></div>
+                            <div class="form-group form-inline"><a class="case-detail-operation" href=""><i class="icon icon-joomla"></i>Create War Room</a></div>
+                            <div class="btn-group form-inline form-group">
+                                <button class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12 case-detail-btn-bg" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     <span class="pull-left">
+                                        More Actions
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>Action 1</li>
+                                    <li>Action 2</li>
+                                    <li>Action 3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="warn-msg">
+                        	<span ><i class="icon icon-compass"></i></span>This case has been escalated
+                        </div>
+                    </div>
+                    <div class="col-md-12 m-v-md">
+                	    <button class="case-detail-button-active">Case Details</button>
+                    	<button class="case-detail-button">Files</button>
+                    	<button class="case-detail-button">Activity</button>
+                    </div>
+                    <div class="col-md-12 m-v-sm">
+                     	<label class="case-detail-label">Basic Info</label>
+                     	<div class="col-md-6 padding-0">
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Case ID: </div>
+                     			<div class="col-md-9 padding-0">{{cdtl.caseDetail.crm_case_id}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Created on: </div>
+                     			<div class="col-md-9 padding-0">{{cdtl.caseDetail.openDate | date:'EEEE, MMM d yyyy'}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Created by:</div>
+                     			<div class="col-md-9 padding-0">{{cdtl.caseDetail.createdbyUserName}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Origin: </div>
+                     			<div class="col-md-9 padding-0" ng-show="!cdtl.editCaseDetail">
+                                    <div ng-repeat="source in cdtl.values.source" ng-if="source.id==cdtl.caseDetail.sourceId"><span>{{source.value}}</span></div>
+                                </div>
+                                <div class="col-md-9 padding-0" ng-show="cdtl.editCaseDetail">
+                                    <select required="required" class="form-control case-dtl-select" id="inputSource" name="Origin" ng-model="cdtl.caseDetail.sourceId">
+                                      <option ng-repeat="source in cdtl.values.source" value={{source.id}} ng-selected="source.id==cdtl.caseDetail.sourceId">{{source.value}}</option>
+                                    </select>
+                                </div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Assigned to :</div>
+                     			<div class="col-md-9 padding-0">{{cdtl.caseDetail.assignedtoUserName}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Last modified by : </div>
+                     			<div class="col-md-9 padding-0">{{cdtl.caseDetail.updatedbyUserName}}</div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Closed by:</div>
+                     			<div class="col-md-9 padding-0"></div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Closed on:</div>
+                     			<div class="col-md-9 padding-0">{{cdtl.caseDetail.closedate | date:'EEEE, MMM d yyyy'}}</div>
+                     		</div>
+                     	</div>
+                     	<div class="col-md-6 padding-0">
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Case type: </div>
+                     			<div class="col-md-9 padding-0" ng-show="!cdtl.editCaseDetail">
+                                    <div ng-repeat="type in cdtl.values.type" ng-if="type.id==cdtl.caseDetail.type" ><span>{{type.value}}</span></div>
+                                </div>
+                                 <div class="col-md-9 padding-0" ng-show="cdtl.editCaseDetail">
+                                    <select required="required" class="form-control case-dtl-select" id="inputCaseType" name="caseType" ng-model="cdtl.caseDetail.type">
+                                       <option ng-repeat="type in cdtl.values.type" value={{type.id}} ng-selected="type.id==cdtl.caseDetail.type">{{type.value}}</option>
+                                    </select>
+                                </div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Case description : </div>
+	                     		<div class="col-md-9 padding-0" ng-show="!cdtl.editCaseDetail">
+	                     			{{cdtl.caseDetail.description}}
+	                     		</div>
+                                <div class="col-md-9 padding-0" ng-show="cdtl.editCaseDetail">
+                                     <textarea maxlength="500" class="form-control case-dtl-select" placeholder="Enter Description..." required="required" wrap="soft" rows="4" cols="50" name="description" ng-model="cdtl.caseDetail.description"></textarea>
+                                </div>
+                     		</div>
+                     	</div>
+                     </div>
+                     <!--Account Info-->
+                     <div class="col-md-12 m-v-sm">
+                     	<label class="case-detail-label">Account Information</label>
+                     	<div class="col-md-6 padding-0">
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Account Name: </div>
+                     			<div class="col-md-9 padding-0 cd-value-color" ng-show="!cdtl.editCaseDetail">
+                                    <a href="#/accountdetail/{{cdtl.caseAccount.id}}">{{cdtl.caseAccount.account_Name}}</a>
+                                </div>
+                                <div class="col-md-9 padding-0" ng-show="cdtl.editCaseDetail">
+                                    <select  required="required" class="form-control case-dtl-select" id="inputAccount" name="Account" ng-model="cdtl.caseAccount.id">
+                                        <option  value="" disabled="disabled"> -- select an option -- </option>
+                                        <option ng-repeat="account in cdtl.accounts" ng-value="account.id" ng-selected="cdtl.caseAccount.id == account.id" ng-click="cdtl.getAccoutDtl(account)">{{account.account_Name}}</option>
+                                     </select>
+                                </div>
+                     		</div>
+                     		<div class="col-md-12 v-padding-xsm">
+                     			<div class="col-md-3 padding-0">Contact Name: </div>
+                     			<div class="col-md-9 padding-0 cd-value-color">{{cdtl.caseAccount.first_name}} {{cdtl.caseAccount.last_name}}</div>
+                     		</div>
+                            <div class="col-md-12 padding-0">
+                                <div class="col-md-3 padding-0">Contact Email: </div>
+                                <div class="col-md-9 padding-0 cd-value-color">{{cdtl.caseAccount.email}}</div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="col-md-3 padding-0">Description: </div>
+                                <div class="col-md-9 padding-0 cd-value-color">{{cdtl.caseAccount.description}}</div>
+                            </div>
+                     	</div>
+                     	<div class="col-md-6 v-padding-xsm">
+                     		<div class="col-md-12 padding-0">
+                     			<div class="col-md-3 padding-0">Contact Mobile: </div>
+                     			<div class="col-md-9 padding-0 cd-value-color">{{cdtl.caseAccount.mobilephone}}</div>
+                     		</div>
+                            <div class="col-md-12 padding-0">
+                                <div class="col-md-3 padding-0">Contact Phone: </div>
+                                <div class="col-md-9 padding-0 cd-value-color">{{cdtl.caseAccount.phone}}</div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="col-md-3 padding-0">Website: </div>
+                                <div class="col-md-9 padding-0 cd-value-color"><a href="{{cdtl.caseAccount.weburl}}">{{cdtl.caseAccount.weburl}}</a></div>
+                            </div>
+                     	</div>
+                     </div>
+                     <!--Assest Info-->
+                     <div class="col-md-12 m-v-sm">
+                        <label class="case-detail-label">Asset Information</label>
+                        <div class="col-md-6 padding-0">
+                            <div class="col-md-12 v-padding-xsm">
+                                <div class="col-md-3 padding-0">Asset Name: </div>
+                                <div class="col-md-9 padding-0 cd-value-color" ng-show="!cdtl.editCaseDetail">{{cdtl.caseAsset.name}}</div>
+                                <div class="col-md-9 padding-0" ng-show="cdtl.editCaseDetail">
+                                    <select  required="required" class="form-control case-dtl-select" id="inputAsset" name="Asset" ng-model="cdtl.caseAsset.id">
+                                        <option  value="" disabled="disabled"> -- select asset -- </option>
+                                        <option ng-repeat="asset in cdtl.assets" ng-value="asset.id" ng-selected="cdtl.caseAsset.id == asset.id" ng-click="cdtl.getAssetDtl(asset)">{{asset.name}}</option>
+                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 v-padding-xsm">
+                                <div class="col-md-3 padding-0">Asset ID: </div>
+                                <div class="col-md-9 padding-0 cd-value-color">{{cdtl.caseAsset.id}}</div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="col-md-3 padding-0">Contact status: </div>
+                                <div class="col-md-9 padding-0 cd-value-color"> Inforce</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 v-padding-xsm">
+                            <div class="col-md-12 v-padding-xsm">
+                                <div class="col-md-3 padding-0">Asset description: </div>
+                                <div class="col-md-9 padding-0">
+                                  {{cdtl.caseAsset.description}}
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                       <div class="col-md-12 m-v-sm">
+                        <label class="case-detail-label">More Sections</label>
+                        <div class="col-md-6 padding-0">
+                            <div class="col-md-12 v-padding-xsm">
+                                <div class="col-md-3 padding-0">Asset Name : </div>
+                                <div class="col-md-9 padding-0">{{cdtl.caseAsset.name}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 v-padding-xsm">
+                            <div class="col-md-12 v-padding-xsm">
+                                <div class="col-md-3 padding-0">Asset description : </div>
+                                <div class="col-md-9 padding-0">
+                                    {{cdtl.caseAsset.description}}
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <div class="row" ng-show="cdtl.editCaseDetail">
+                    <div class="col-md-12 case-dtl-footer">
+                        <input type="submit" class="btn btn-primary case-ok-modal-btn case-modal-btn case-dtl-btn" value="Save" ng-click="cdtl.updateEditCaseDtl(editCaseDetailForm)"/>
+                        <button type="button" class="btn btn-default case-cancel-modal-btn case-modal-btn case-dtl-btn" ng-click="cdtl.cancelEditCaseDtl()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <!-- Right panel ends-->
+        </div>
+    </div>
+</div>

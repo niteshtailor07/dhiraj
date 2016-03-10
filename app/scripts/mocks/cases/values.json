@@ -1,0 +1,6 @@
+{
+  "type":[{"id":1,"value":"Customer Support"},{"id":2,"value":"PS"},{"id":3,"value":"RMA"}],
+  "source":[{"id":1,"value":"Web"},{"id":2,"value":"Email"},{"id":3,"value":"SMS"},{"id":4,"value":"Mobile"},{"id":5,"value":"Phone"},{"id":6,"value":"Chat"},{"id":7,"value":"Manual"}],
+  "severity":[{"id":1,"value":"Critical"},{"id":1,"value":"Major"},{"id":3,"value":"Minor"},{"id":4,"value":"Informational"}],
+  "status":[{"id":1,"value":"Open"},{"id":2,"value":"Active"},{"id":3,"value":"Awaiting Input"}]
+}

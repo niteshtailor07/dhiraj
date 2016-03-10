@@ -1,0 +1,16 @@
+
+<div><button class="btn btn-sm" ng-click= "isWidgetOpen = !isWidgetOpen" ng-init="isWidgetOpen=true">
+  <i ng-show="isWidgetOpen" class="icon icon-plus"></i>
+  <i ng-hide="isWidgetOpen" class="icon icon-minus"></i> Add Widget</button>
+</div>
+<div ng-show="isWidgetOpen" class="widgets-content clearfix">
+    <div class="portlet-widgets">
+       <div class="portlet-widget" ng-repeat="widget in portletWidgets" id="{{widget.id}}">
+        <div class="widget-header">
+         <h4 class="pull-left">{{widget.name}}</h4><img class="pull-right" height="60" src="{{widget.img}}" width="100">
+
+        <div class="clear widget-desc"><p>{{widget.desc}}</p></div>
+        </div>
+       </div>
+    </div>
+</div>

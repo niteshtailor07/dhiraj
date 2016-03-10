@@ -1,0 +1,194 @@
+<link rel="stylesheet" href="/styles/create-case.css">
+<div class="case-header">
+  <div>
+     <div class="pull-left">
+      <span class="logo"></span>
+      <span class="">Create New Case</span>
+    </div>
+    <div class="pull-right">
+      <a href="#/cases" class="navigator"><span class="cross">X</span></a>
+     </div>
+    <div style="clear:both"></div>
+  </div>
+</div>
+<div class="row case-container">
+  <div class="col-md-9">
+    <div class="form-group">
+      <span class="createcase-label required">Required</span>
+    </div>
+    <form class="" >
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Case Type
+        </div>
+        <div class="form-inline form-group input-value-container required">
+          <select id="case-type" class="input-value" name="" ng-model="case.type">
+            <option value="1">Case type 1</option>
+            <option value="2">Case type 2</option>
+            <option value="3">Case type 3</option>
+          </select>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Source/Origin
+        </div>
+        <div class="form-inline form-group input-value-container required">
+          <select id="case-source" class="input-value" name="">
+            <option value="1">Phone</option>
+            <option value="2">Web</option>
+            <option value="3">Other</option>
+          </select>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Account
+        </div>
+        <div class="form-inline form-group input-value-container required">
+          <select class="input-value" name="" ng-model="case.accountid">
+            <option value="AccountdId-0">AccountdId-0</option>
+            <option value="AccountdId-13">AccountdId-13</option>
+          </select>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Requester
+        </div>
+        <div class="form-inline form-group input-value-container required">
+          <select class="input-value" name="" ng-model="case.creatorName">
+            <option value="Aditya">Aditya</option>
+            <option value="Dhiraj">Dhiraj</option>
+          </select>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Title/Summary
+        </div>
+        <div class="form-inline form-group input-value-container required" id="case-title-container">
+          <input type="text" name="name" value="" class="input-value" >
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Description
+        </div>
+        <div class="form-inline form-group input-value-container optional" id="case-description-container">
+          <textarea name="name" rows="" cols="" class="input-value" ng-model="case.description"></textarea>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Attachments
+        </div>
+        <div class="form-inline form-group input-value-container optional">
+          <span>abc.pdf</span>
+          <div><input type="file" name="name" value="" class="input-value" ngf-select="cc.onFileSelect($files)" multiple></div>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Severity
+        </div>
+        <div class="form-inline form-group input-value-container required">
+          <select id="case-severity" class="input-value" name="" ng-model="case.priority">
+            <option value="3">Critical</option>
+            <option value="2">Major</option>
+            <option value="1">Minor</option>
+          </select>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label">
+          Asset Sr. No.
+        </div>
+        <div class="form-inline form-group input-value-container required">
+          <select class="input-value" name="">
+            <option>Major</option>
+          </select>
+        </div>
+      </div>
+  <!-- case input ends-->
+  <!-- case input start-->
+      <div class="form-group form-inline input-container">
+        <div class="form-inline form-group createcase-label optional">
+          Asset Type
+        </div>
+        <div class="form-inline form-group input-value-container">
+          <select class="input-value" name="">
+            <option>Major</option>
+          </select>
+        </div>
+      </div>
+      <!-- case input ends-->
+    </form>
+  </div>
+  <div class="col-md-3 right-panel">
+    <div class=" form-group form-inline">
+      <div class="form-group form-inline">KnowledgeBase</div>
+      <div class="form-group form-inline pull-right">
+          <input type="text" name="name" value="" >
+      </div>
+    </div>
+    <div class="account-info-container">
+      <label for="" class="paddin-10">About this Account</label>
+      <div class="">
+          <img src="http://www.acme.in/img/logo.png"  height="80" width="100" class="account-logo"/>
+          <p>
+            IcoMoon is striving to build and provide the best iconography and icon management tool for perfectionists. IcoMoon's icon library features only the very best icon sets out there. All of our icons are designed on a precise pixel grid. The IcoMoon app lets you build and use your own icon sets in different formats including SVG, icon font or simple PNG/CSS sprites.
+          </p>
+      </div>
+    </div>
+    <div class="account-info-container">
+      <label for="" class="paddin-10">Last case in this account</label>
+      <div class="">
+        <p>
+            IcoMoon is striving to build and provide.
+          </p>
+      </div>
+    </div>
+    <div class="account-info-container">
+      <label for="" class="paddin-10">Open cases</label>
+      <div class="">
+          <p>
+            IcoMoon is striving to build and provide.
+          </p>
+      </div>
+    </div>
+    <div class="account-info-container">
+      <label for="" class="paddin-10">Average satisfaction score</label>
+      <div class="">
+          <p>
+            IcoMoon is striving to build and provide.
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="case-footer">
+  <div class="pull-right">
+    <button class="btn btn-default" name="button" type="button" ng-click="createCase();">Save</button>
+    <button class="btn btn-default" name="button" type="button">Save &amp; Create new</button>
+    <button class=" btn btn-default" name="button" type="button">Cancel</button>
+  </div>
+  <div style="clear:both"></div>
+</div>

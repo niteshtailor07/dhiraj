@@ -1,0 +1,144 @@
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="row">
+            <!-- Left panel starts-->
+            <div id="tcrm-nav" class="col-md-2 element" ng-include="'views/partials/left-menu.html'"></div>
+            <!-- Left panel ends-->
+            <!-- Right panel starts-->
+            <div id="tcrm-main" class="col-md-10 element">
+                <div class="row" id="account-header-container">
+                    <!-- search starts -->
+                    <div id="search" class="col-md-12" ng-include="'views/partials/main-search.html'"></div>
+                    <!-- search ends -->
+                    <div class="col-md-12 tcrm-account-list-header">
+                        <span class="heading">Accounts</span>
+                        <div class="btn-group pull-right" ng-click="resetFilters()">
+                            <button type="button" class="btn btn-default icon icon-menu tgl-btn" ng-click="acc.listView=true" ng-class="{active:acc.listView}"></button>
+                            <button type="button" class="btn btn-default icon icon-table2 tgl-btn" ng-click="acc.listView=false" ng-class="{active:!acc.listView}"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-inline" id="account-operation-container">
+                            <div class="form-group form-inline"><a href="" class="account-operation"><i class="icon icon-plus"></i>Create New</a></div>
+                            <div class="form-group form-inline account-operation"><a href="" class="account-operation"><i class="icon icon-pencil"></i>Edit</a></div>
+                            <div class="form-group form-inline account-operation"><a href="" class="account-operation"><i class="icon icon-minus" id="delete-operation"></i>Delete</a></div>
+                            <div class="btn-group form-inline form-group">
+                                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-more-actions btn-sm dropdown-toggle col-md-12">
+                                     <span class="pull-left">
+                                        More Actions
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>Action 1</li>
+                                    <li>Action 2</li>
+                                    <li>Action 3</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 tcrm-account-filter">
+                        <div class="filter-list form-inline">
+                            <div class=" filter-title form-inline form-group">Filters:</div>
+                            <div class="btn-group form-inline form-group">
+                                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle ">
+                                    <span class="pull-left">
+                                        Status:
+                                            <span class="filter-type">{{accountFilter.status.value}}</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-click="filterAccount('status','All')">All</li>
+                                    <li ng-click="filterAccount('status','Open')">Open</li>
+                                    <li ng-click="filterAccount('status','Active')">Active</li>
+                                </ul>
+                            </div>
+                            <div class="btn-group form-inline form-group">
+                                <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle col-md-12">
+                                    <span class="pull-left">
+                                        Account Type:
+                                        <span class="filter-type">{{accountFilter.type.value}}</span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <span class="caret"></span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-click="filterAccount('type',1)">Acc type1</li>
+                                    <li ng-click="filterAccount('type',2)">Acc type2</li>
+                                    <li ng-click="filterAccount('type',3)">Acc type3</li>
+                                </ul>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="row" id="account-list-container" ng-show="acc.listView">
+                    <div class="col-md-12">
+                        <div id="tcrm-watchlist" class="container-75vh">
+                            <div>
+                                <div class="heading-sm pull-left">{{acc.accounts.length}} Accounts</div>
+                                <div class="pull-right">
+                                    <div class="btn-group form-inline form-group dropdown-btn">
+                                        <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle col-md-12 btn-dd">
+                                            <span class="pull-left dd-height-sm">
+                                                <label class="font-b">Sort By:</label>
+                                                <span class="filter-type">Alphabetical</span>
+                                            </span>
+                                            <span class="pull-right">
+                                                <span class="caret"></span>
+                                            </span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li ng-click="filterAccount('type',1)">Alphabetical</li>
+                                            <li ng-click="filterAccount('type',2)">Numeric</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div class="row" ng-repeat=" ac in acc.accounts">
+                                <div class="tcrm-recents account-container">
+                                  <div class="account-detail">
+                                    <div class="recents-colored account-header">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <a ng-href="#/accountdetail/{{ac.account_id}}" class="account-title">{{ac.account_Name}}</a>
+                                        </label>
+                                    </div>
+                                      <div class="padding-0 col-md-12">
+                                        <div class="account-report col-md-12 padding-0">
+                                          <div class="col-md-2 account-detail account-sub-title">Account Type: {{ac.type}}</div>
+                                          <div class="col-md-2 account-detail account-sub-title">CRM Account Id: {{ac.crm_account_id}} </div>
+                                          <div class="col-md-3 account-detail account-sub-title">Industry: {{ac.industry}}</div>
+                                          <div class="col-md-3 account-detail account-sub-title">Description: {{ac.description}}</div>
+                                          <div class="col-md-2 account-detail account-sub-title">No of Emp: {{ac.no_of_emp}}</div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                    <div class="clr-bth"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive container-75vh " id="account-grid-container" ng-show="!acc.listView">
+                           <div ag-grid="acc.gridOptions" class="ag-fresh grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right panel ends-->
+        </div>
+    </div>
+</div>

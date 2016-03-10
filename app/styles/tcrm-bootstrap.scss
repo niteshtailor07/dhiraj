@@ -1,0 +1,18 @@
+//Boostrap overrides
+.container-fluid{padding:0;}
+
+
+//modal
+.modal-lg {
+  width: 80%;
+}
+.modal-header {background-color: #152029;}
+.modal-header .close {
+  color: #FFF;
+  margin-top: -10px;
+  font-size: 35px;
+  opacity: 100;
+  font-weight: initial;
+}
+.modal-header h4 {color: #fff;}
+.modal-footer {background-color:#EEE;}

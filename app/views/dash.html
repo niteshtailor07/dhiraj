@@ -1,0 +1,161 @@
+<!--div class="container-fluid" ng-controller="DashCtrl as dc"-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <!-- Left panel starts-->
+        <div id="tcrm-nav" class="col-md-2 element" ng-include="'views/partials/left-menu.html'"></div>
+        <!-- Left panel ends -->
+        <!-- Right panel starts-->
+        <div id="tcrm-main" class="col-md-10 element" >
+          <div class="row">
+            <!-- search starts -->
+            <div id="search" class="col-md-12" ng-include="'views/partials/main-search.html'"></div>
+            <!-- search ends -->
+            <div class="col-md-12 tcrm-dash-header">
+               <h2>Dashboard</h2>
+               <div id="drop-group">
+                 <span id="drop3" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Quick Actions
+                  <span class="caret"></span>
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="drop3">
+                  <li><a href="" data-toggle="modal" data-target="#gridSystemModal">Create new case</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+              <!-- <tcrm-modal filename="create-new"></tcrm-modal> -->
+            </div>
+          </div>
+          <div class="row">
+            <!-- Watchlist starts-->
+            <div class="col-md-8">
+              <div id="tcrm-watchlist">
+                <h3>My Watchlist</h3>
+                <div class="row">
+                  <div id="tcrm-panels" class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-4 tcrm-panel-sm2">
+                        <span class="tcrm-panel-sm2-num"><a ng-href="#/accounts">{{dc.accountCount}}</a></span>
+                        <br />
+                        <span class="tcrm-panel-sm2-desc">Accounts</span>
+                      </div>
+                      <div class="col-md-4 tcrm-panel-sm2">
+                        <span class="tcrm-panel-sm2-num"><a ng-href="#/cases">{{dc.caseCount}}</a></span>
+                        <br />
+                        <span class="tcrm-panel-sm2-desc">Cases</span>
+                      </div>
+                      <div class="col-md-4 tcrm-panel-sm2">
+                        <span class="tcrm-panel-sm2-num">8</span>
+                        <br />
+                        <span class="tcrm-panel-sm2-desc">Assets</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="tcrm-recents-header" class="col-md-12">
+                    <h3>Recent activity</h3>
+                    <!-- Small button group -->
+                    <div class="btn-group">
+                      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Across Watchlist <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="tcrm-recents" class="col-md-12">
+                      <div class="recents recents-icons">
+                        <span class="icon icon-file-pdf"></span>
+                        <img height="35" src="/images/sales/varun.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm">
+                      </div>
+                      <div class="recents recents-info">
+                        <span class="recents-colored">Techsmith Corp</span><br />
+                        <span class="recents-colored">Varun B.</span> added file for processing to <span class="recents-colored">Visa processing case.</span><br />
+                        <span>Needs to be sped up.</span>
+                      </div>
+                  </div>
+                  <div class="tcrm-recents" class="col-md-12">
+                      <div class="recents recents-icons">
+                        <span class="icon icon-envelop"></span>
+                        <img height="35" src="/images/sales/barb.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm">
+                      </div>
+                      <div class="recents recents-info">
+                        <span class="recents-colored">Techsmith Corp</span><br />
+                        <span class="recents-colored">Barbara V.</span> added file for processing to <span class="recents-colored">Visa processing case.</span><br />
+                        <span>Needs to be sped up.</span>
+                      </div>
+                  </div>
+                  <div class="tcrm-recents" class="col-md-12">
+                      <div class="recents recents-icons">
+                        <span class="icon icon-file-pdf"></span>
+                        <img height="35" src="/images/sales/varun.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm">
+                      </div>
+                      <div class="recents recents-info">
+                        <span class="recents-colored">Techsmith Corp</span><br />
+                        <span class="recents-colored">Varun B.</span> added file for processing to <span class="recents-colored">Visa processing case.</span><br />
+                        <span>Needs to be sped up.</span>
+                      </div>
+                  </div>
+                  <div class="tcrm-recents" class="col-md-12">
+                      <div class="recents recents-icons">
+                        <span class="icon icon-envelop"></span>
+                        <img height="35" src="/images/sales/barb.jpg" width="35" class="recents-pix" alt="tcrm" title="tcrm">
+                      </div>
+                      <div class="recents recents-info">
+                        <span class="recents-colored">Techsmith Corp</span><br />
+                        <span class="recents-colored">Barbara V.</span> added file for processing to <span class="recents-colored">Visa processing case.</span><br />
+                        <span>Needs to be sped up.</span>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                    <a href="#/"><span class="recents-colored">view older...</span></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Calendar starts-->
+            <div class="col-md-4">
+              <div class="row" id="tcrm-main-rightPanel">
+                <div id="tcrm-panels" class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6 tcrm-panel-sm">
+                      <span class="tcrm-panel-sm-num">2</span>
+                      <br />
+                      <span class="tcrm-panel-sm-desc">Open RFPs</span>
+                    </div>
+                    <div class="col-md-6 tcrm-panel-sm">
+                      <span class="tcrm-panel-sm-num">3</span>
+                      <br />
+                      <span class="tcrm-panel-sm-desc">POCs</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="tcrm-calendar" class="col-md-12">
+                  <h3>My Calendar</h3>
+                </div>
+                <div id="tcrm-notes" class="col-md-12">
+                  <h3>My Notes</h3>
+                  <p>Follow up with Bill on the call for Toyota case <a href="#/casedetail/02fe3641-da29-445e-b799-a4074f9badaf"> 50028000005g7xQAAQ</a>. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right panel ends-->
+    </div>
+  </div>
+</div>

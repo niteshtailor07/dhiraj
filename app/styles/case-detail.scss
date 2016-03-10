@@ -1,0 +1,117 @@
+.container-75vh{
+  height: 75vh;
+}
+#tcrm-main{
+  background-color : #fff;
+}
+.case-detail-header{
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: -20px;
+}
+.case-detail-header label{
+  font-weight: bold;
+}
+.padding-0{
+  padding: 0;
+}
+.v-padding-0{
+  padding-top: 0 !important;
+  padding-bottom : 0 !important;
+}
+.case-detail-sub-title{
+  color: #999999;
+  font-size: 14px;
+}
+.case-detail-info{
+  position: relative;
+  top: -10px;
+}
+.case-detail-icon{
+  float: left;
+  margin-left: 1px;
+  margin-right: 5px;
+}
+.heading {
+    font-size: 26px;
+    font-weight: bold;
+    color: #000000;
+}
+#case-detail-operation-container{
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 5px;
+  color:#46818E;
+}
+.case-detail-btn-bg{
+  background-color : #eeeeee;
+}
+.case-detail-operation, .case-detail-operation:hover{
+  color: #009999;
+  font-size: 12px;
+  padding: 3px 10px 3px 3px;
+  text-decoration: none !important;
+}
+.case-detail-operation i{
+  font-size: 12px;
+  margin-right: 3px;
+}
+.case-detail-button{
+	background-color: #dddddd;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    margin-right: 6px;
+    padding: 3px 10px;
+    width: 120px;
+}
+
+.case-detail-button-active{
+    border: 1px solid #424242;
+    border-radius: 5px;
+    margin-right: 6px;
+    padding: 3px 10px;
+    width: 120px;
+	background-color: #134F5C;
+	color: #fff;
+}
+
+.case-detail-button:active{
+	background-color: #134F5C;
+	color: #fff;
+}
+.m-v-sm{
+	margin : 8px 0;
+}
+.warn-msg{
+	 background-color: #fae6e6;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    color: #b90d0b;
+    margin: 3px 0 10px;
+    padding: 5px;
+}
+.case-detail-label{
+	border-bottom : 1px solid #cfcfcf;
+	width : 100%;
+}
+.m-v-sm{
+	margin : 8px 0;
+}
+
+.v-padding-xsm{
+	padding : 1px 0;
+}
+.cd-value-color{
+  color: #45818E;
+}
+.case-dtl-footer{
+  text-align:right;
+  background-color : #EEEEEE;
+  padding : 15px 10px;
+}
+.case-dtl-btn{
+  margin : 5px;
+}
+.case-dtl-select{
+  width : 95%;
+}

@@ -1,0 +1,259 @@
+// bower:scss
+// endbower
+
+a:hover, a:focus {
+     text-decoration: none;
+}
+
+
+#logo{
+  position: relative;
+  left: -20px;
+}
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+//TCRM customs styles
+//general
+html, body{
+  height:100%;
+  background-color:#EAEAEB;
+}
+.margin-bottom-10{margin-bottom:10px;}
+//autocomplete overrides
+.highlight {
+	color: #ff0000;
+}
+//icoMoon styles
+.icon-search {font-size: 22px;}
+.icon-search {
+  position: absolute;
+  top: 45px;
+  right: 20px;
+}
+//Dashboard
+h2, h3 {color: #535356;}
+h3 {margin:0;}
+ul {
+  padding:0;
+  list-style-type: none;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+h3 {margin-bottom:10px;}
+
+//left-nav
+#chat{
+  position: fixed;
+  bottom: 0;
+  background-color: #112024;
+  padding: 15px 0;
+  width: 100%;
+}
+#chat ul {margin:0;padding-left: 15px;}
+#chat > div {padding: 0;  color: #FFF;}
+#chat > div > ul > li > a {
+  color: #FFF;
+  margin-left: 10px;
+}
+ul.nav-menu li {position:relative;padding-left: 10px;height: 35px;line-height: 35px;  text-indent: 15px;}
+ul.nav-menu li > a {color:#FFF;}
+ul.nav-menu li.active > a {color:#66CCCC;}
+ul.nav-menu li.active > span.indicator {
+  background-color: #66CCCC;
+  width: 10px;
+  position: absolute;
+  left: 0;
+  height: inherit;
+}
+/*ul.nav-menu li > a span.dot{
+  background-color: #FFF;
+  border-radius: 25px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  height: 15px;
+  width: 15px;
+}
+ul.nav-menu li.active > a span.dot{background-color:#35B6B9;}
+.left-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}*/
+/*left-nav communicator section*/
+ul.nav-menu2{
+  overflow: scroll;
+  height: 220px;
+}
+ul.nav-menu2 li > a, ul.nav-menu3 li > a{color:#99CCCC;}
+ul.nav-menu2 li {margin-bottom: 15px; text-indent:0; padding-left: 20px;}
+ul.nav-menu2 li > img {margin-right:10px;}
+ul.nav-menu3 li {height: 20px;line-height: 25px;  text-indent: 25px;}
+
+.tcrm-dash-header {border-bottom: 1px solid #c9c9c9;}
+
+.tcrm-dash-header > h2 {display:inline; }
+/*.tcrm-dash-header > div.btn-group {float:right;}
+.tcrm-dash-header div.btn-group > button {
+  background-color: #376E7C;
+  color: #fff;
+  font-weight: 600;
+}
+*/
+#drop-group {
+  float: right;
+  position:relative;
+  background-color: #376E7C;
+  padding: 5px;
+  border-radius: 5px;
+  color: #FFF;
+  font-weight: 400;
+}
+#drop-group  .dropdown-menu{left: -100px;}
+
+.dropdown-menu > li { padding-left: 8px;}
+
+#tcrm-nav{background-color:#293F51;}
+#tcrm-main  {min-height: 1000px;}
+#tcrm-nav, #tcrm-main > .row {padding-top:0px; padding-bottom:10px;}
+#tcrm-watchlist {padding: 10px; background-color:#FFF; min-height:300px;}
+#tcrm-calendar, #tcrm-notes, .tcrm-panel-sm  {margin-bottom:10px; border-radius: 5px;padding: 10px; background-color:#FFF; min-height:100px;}
+#tcrm-commicator {min-height: 200px;}
+#tcrm-commicator h5, #tcrm-bookmarks h5{margin-left: -10px;color:#FFF;}
+
+.tcrm-panel-sm {width:49%;text-align:center;padding:10px}
+.tcrm-panel-sm-num{font-size:4em;color:#6595A0;}
+.tcrm-panel-sm-desc{}
+.row > .tcrm-panel-sm:first-child {margin-right:2%;}
+//embedded tcrm-panel-sm
+.tcrm-panel-sm2 {text-align:center;padding:10px}
+.tcrm-panel-sm2-num{font-size:4em;color:#6595A0;}
+.tcrm-panel-sm2-desc{}
+
+.tcrm-recents{
+  border-bottom: 1px solid #ddd;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.tcrm-recents-header {padding-left: 15px;}
+.tcrm-recents-header > h3, .tcrm-recents-header  > div {display:inline-block;}
+.tcrm-recents-header  > h3 {margin-right: 10px;}
+.tcrm-recents-header    div.btn-group > button {
+  background-color: #376E7C;
+  color: #fff;
+  font-weight: 600;
+}
+.recents {margin-top: 20px; display:inline-block;}
+.recents-icons {
+  position: relative;
+  top: -30px;
+}
+.recents-colored {color:#376E7C;}
+.recents-pix {border-radius: 25px;}
+
+#tcrm-main-rightPanel {padding-right:15px; padding-top:46px;}
+
+/*BT for search*/
+#search{background-color:#35B6B9;padding-bottom: 10px;margin-bottom: 15px;}
+.dropdown-toggle{ color:#000;}
+.nav>li>a:hover { background-color: transparent;}
+
+.col-md-12 {margin-bottom: 5px;}
+
+#login { background-color:#112024; height: 100vh;}
+#login-main { position:relative; top: 50%; transform: translateY(-50%);}
+#login input {border: 0; outline: 0; background: transparent; border-bottom: 2px solid white; color: white; padding: 10px 10px 5px 10px; margin: 20px 20px 0px 20px;}
+#login input::-webkit-input-placeholder { color: white !important;}
+#login input:-moz-input-placeholder { color: white !important;}
+#login input::-moz-input-placeholder { color: white !important;}
+#login input:-ms-input-placeholder { color: white !important;}
+#login input:focus { outline: none; box-shadow: none;}
+#login p {color: #66CCCC; margin-top: 10px;}
+#login button {margin-left: 20px;}
